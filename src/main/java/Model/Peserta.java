@@ -1,5 +1,6 @@
 package model;
 
+<<<<<<< HEAD
 public class Peserta {
 
     private int idPeserta;
@@ -28,4 +29,42 @@ public class Peserta {
     public String getProdi() { return prodi; }
     public String getNoHp() { return noHp; }
     public String getEmail() { return email; }
+=======
+public class Peserta extends Orang {
+    private String nim;
+    private String prodi;
+
+    public Peserta(int id, String nama, String noHp, String nim, String prodi) {
+        super(id, nama, noHp);
+        setNim(nim);
+        setProdi(prodi);
+    }
+
+    public String getNim() {
+        return nim;
+    }
+
+    public final void setNim(String nim) {
+        if (nim == null || nim.trim().isEmpty()) {
+            throw new IllegalArgumentException("NIM wajib diisi");
+        }
+        this.nim = nim.trim();
+    }
+
+    public String getProdi() {
+        return prodi;
+    }
+
+    public final void setProdi(String prodi) {
+        if (prodi == null || prodi.trim().isEmpty()) {
+            throw new IllegalArgumentException("Prodi wajib diisi");
+        }
+        this.prodi = prodi.trim();
+    }
+
+    @Override
+    public String getInfo() {
+        return "[Peserta] " + super.getInfo() + " | NIM: " + nim + " | Prodi: " + prodi;
+    }
+>>>>>>> eb00c6122b2054874fe953be0f858b823e5cf1af
 }
